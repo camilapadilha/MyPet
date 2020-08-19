@@ -6,4 +6,234 @@
     android:layout_height="match_parent"
     tools:context=".CadastrarVisualizarPetActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutNovaMemoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Cadastrar Pet"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNovaMemoria">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/layoutNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageButton
+                    android:id="@+id/button8"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="none"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fotoPet"
+                    android:layout_width="95dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/ic_add_foto_pet"
+                    app:layout_constraintEnd_toStartOf="@+id/input_layout_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button8" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="50dp">
+
+                    <EditText
+                        android:id="@+id/input_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@null"
+                        android:gravity="top|left"
+                        android:hint="Nome"
+                        android:inputType="textMultiLine"
+                        android:lines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutPeso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutNome">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_peso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_peso"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="top|left"
+                        android:hint="Peso"
+                        android:inputType="textMultiLine"
+                        android:lines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutTipoPet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutPeso">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_tipo_pet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:hint="Tipo de Pet"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutRaca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutTipoPet">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_raca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_raca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="top|left"
+                        android:hint="Raça"
+                        android:inputType="textMultiLine"
+                        android:lines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutSexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutRaca">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:hint="Sexo"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutDataNasc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/retangulo_branco"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutSexo">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_Data"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <EditText
+                        android:id="@+id/input_DataNasc"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@null"
+                        android:gravity="top|left"
+                        android:hint="Data de Nascimento"
+                        android:inputType="date"
+                        android:lines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
