@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "296312272904",
+    "firebase_url": "https://mypet-d09ca.firebaseio.com",
+    "project_id": "mypet-d09ca",
+    "storage_bucket": "mypet-d09ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296312272904:android:85148bdecd4b57792f39bd",
+        "android_client_info": {
+          "package_name": "com.camila.mypet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296312272904-p53iaauev755rt8020i2u2t2ir5hhlcn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.camila.mypet",
+            "certificate_hash": "b6c68622c4b90676f285c866b1cf6decd710750e"
+          }
+        },
+        {
+          "client_id": "296312272904-c0mfklh3o64n04rhfm5n6gis1g0kfu1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUFFmZy4IUKRwTV4l-fue3RqJHZevsPdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296312272904-c0mfklh3o64n04rhfm5n6gis1g0kfu1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
