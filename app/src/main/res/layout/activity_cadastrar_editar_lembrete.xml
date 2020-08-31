@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,7 @@
     tools:context=".CadastrarEditarLembreteActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutNovaMemoria"
+        android:id="@+id/layoutCadLembrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -34,7 +35,7 @@
         android:overScrollMode="never"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutNovaMemoria">
+        app:layout_constraintTop_toBottomOf="@id/layoutCadLembrete">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -93,8 +94,10 @@
                         android:background="@null"
                         android:gravity="top|left"
                         android:hint="Data"
+                        android:ems="10"
                         android:inputType="date"
-                        android:lines="2" />
+                        android:lines="2"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
 
@@ -128,7 +131,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/layoutDescricao"
+                android:id="@+id/layoutComentario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -140,12 +143,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/layoutHorario">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_layout_descricao"
+                    android:id="@+id/input_layout_comentario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/input_descricao"
+                        android:id="@+id/input_comentario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
@@ -156,6 +159,46 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/layoutCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutComentario">
+                <Button
+                    android:backgroundTint="#87CEFF"
+                    android:id="@+id/btnCadastrarLemb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cadastrar"
+                    android:onClick="cadastrar"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layoutCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/layoutCadastrar">
+                <Button
+                    android:backgroundTint="#FFC0CB"
+                    android:id="@+id/btnCancelarLemb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar"
+                    android:onClick="cancelar"
+                    />
+            </RelativeLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
