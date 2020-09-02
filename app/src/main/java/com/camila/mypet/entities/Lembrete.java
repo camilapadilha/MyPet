@@ -14,10 +14,9 @@ public class Lembrete {
 
     }
 
-    public Lembrete(String nome, Date data, Time horario, String comentario, String chave) {
+    public Lembrete(String nome, Date data, String comentario, String chave) {
         this.nome = nome;
         this.data = data;
-        this.horario = horario;
         this.comentario = comentario;
         this.chave = chave;
     }

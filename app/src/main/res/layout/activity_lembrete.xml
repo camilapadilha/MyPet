@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LembreteActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-        android:onClick="chamarCadastrarLembrete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_add" />
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--        android:id="@+id/layoutLembretes"-->
 <!--        android:layout_width="match_parent"-->
@@ -62,62 +47,29 @@
 
 <!--        </LinearLayout>-->
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+        <ListView
+            android:id="@+id/listLembretes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:overScrollMode="never"-->
-<!--        android:scrollbars="none"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/layoutLembretes">-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingAddLembrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|left"
+            android:onClick="chamarCadastrarLembrete"
+            android:src="@drawable/ic_add"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            />
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <ListView-->
-<!--                android:id="@+id/listViewRegistros"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="1dp"-->
-<!--                android:layout_marginLeft="1dp"-->
-<!--                android:layout_marginTop="1dp"-->
-<!--                android:layout_marginEnd="1dp"-->
-<!--                android:layout_marginRight="1dp"-->
-<!--                android:paddingTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.517"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="parent" />-->
-
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/layoutCancelar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="15dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:layout_marginEnd="15dp"-->
-<!--                android:layout_marginBottom="15dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/layoutCadastrar">-->
-
-<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--                    android:id="@+id/floatingActionButton"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentStart="true"-->
-<!--                    android:layout_alignParentLeft="true"-->
-<!--                    android:layout_alignParentEnd="true"-->
-<!--                    android:layout_alignParentRight="true"-->
-<!--                    android:layout_marginStart="308dp"-->
-<!--                    android:layout_marginLeft="308dp"-->
-<!--                    android:layout_marginEnd="18dp"-->
-<!--                    android:layout_marginRight="18dp"-->
-<!--                    android:clickable="true"-->
-<!--                    android:onClick="chamarCadastrarLembrete"-->
-<!--                    app:srcCompat="@drawable/ic_add" />-->
-<!--            </RelativeLayout>-->
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    </ScrollView>-->
-
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
