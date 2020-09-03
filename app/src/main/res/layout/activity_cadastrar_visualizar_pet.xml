@@ -20,8 +20,7 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:text="Cadastrar Pet"
             android:textSize="20sp"
@@ -121,11 +120,11 @@
                     <EditText
                         android:id="@+id/input_peso"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:background="@null"
                         android:gravity="top|left"
                         android:hint="Peso"
-                        android:inputType="textMultiLine"
+                        android:inputType="numberDecimal"
                         android:lines="2" />
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
@@ -141,18 +140,12 @@
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPeso">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_layout_tipo_pet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:hint="Tipo de Pet"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                <Spinner
+                    android:id="@+id/spinnerTipoPet"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/lista_tipo_pet"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/layoutRaca"
@@ -174,7 +167,7 @@
                     <EditText
                         android:id="@+id/input_raca"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:background="@null"
                         android:gravity="top|left"
                         android:hint="Raça"
@@ -194,18 +187,13 @@
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@+id/layoutRaca">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_layout_sexo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:hint="Sexo"
-                    />
+                <Spinner
+                    android:id="@+id/spinnerSexo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/lista_sexo"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
 
             <RelativeLayout
@@ -223,7 +211,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_layout_Data"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp">
+                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/input_DataNasc"
@@ -261,7 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
                 android:orientation="horizontal"

@@ -9,4 +9,18 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string-array name="lista_sexo">
+        <item>Escolha o Sexo</item>
+        <item>Fêmea</item>
+        <item>Macho</item>
+    </string-array>
+    <string-array name="lista_tipo_pet">
+        <item>Escolha o Tipo do seu pet</item>
+        <item>Cachorro</item>
+        <item>Gato</item>
+        <item>Coelho</item>
+        <item>Pássaro</item>
+        <item>Roedor</item>
+        <item>Outro</item>
+    </string-array>
 </resources>

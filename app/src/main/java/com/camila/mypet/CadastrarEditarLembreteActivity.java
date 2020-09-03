@@ -1,13 +1,13 @@
 package com.camila.mypet;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.camila.mypet.entities.Lembrete;
 import com.camila.mypet.util.Mascara;
@@ -16,15 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Calendar;
-import java.util.Date;
 
 public class CadastrarEditarLembreteActivity extends AppCompatActivity {
 
@@ -67,4 +60,7 @@ public class CadastrarEditarLembreteActivity extends AppCompatActivity {
         finish();
     }
 
+    public void cancelar(View view) {
+        finish();
+    }
 }

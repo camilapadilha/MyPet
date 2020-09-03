@@ -1,8 +1,5 @@
 package com.camila.mypet.entities;
 
-import com.camila.mypet.ENUMS.Sexo;
-import com.camila.mypet.ENUMS.TipoDePet;
-
 import java.util.Date;
 
 public class Pet {
@@ -12,10 +9,14 @@ public class Pet {
     private Double peso;
     private String raca;
     private Date dataNascimento;
-    private Sexo sexo;
-    private TipoDePet tipoDePet;
+    private String sexo;
+    private String tipoDePet;
 
-    public Pet(String chave, String nome, Double peso, String raca, Date dataNascimento, Sexo sexo, TipoDePet tipoDePet) {
+    public Pet() {
+
+    }
+
+    public Pet(String chave, String nome, Double peso, String raca, Date dataNascimento, String sexo, String tipoDePet) {
         this.chave = chave;
         this.nome = nome;
         this.peso = peso;
@@ -65,19 +66,19 @@ public class Pet {
         this.dataNascimento = dataNascimento;
     }
 
-    public Sexo getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(Sexo sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public TipoDePet getTipoDePet() {
+    public String getTipoDePet() {
         return tipoDePet;
     }
 
-    public void setTipoDePet(TipoDePet tipoDePet) {
+    public void setTipoDePet(String tipoDePet) {
         this.tipoDePet = tipoDePet;
     }
 }
