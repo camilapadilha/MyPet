@@ -22,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void chamarCadastrarPet(View view) {
-        Intent itt = new Intent(this, CadastrarVisualizarPetActivity.class);
-        startActivity(itt);
-    }
-
     public void chamarVerPet(View view) {
         Intent itt = new Intent(this, VerPetActivity.class);
         startActivity(itt);

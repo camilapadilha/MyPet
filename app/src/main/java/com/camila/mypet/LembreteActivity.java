@@ -23,7 +23,6 @@ import java.util.List;
 public class LembreteActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     private FirebaseAuth mAuth;
-    private ListaLembretesAdapter adapter;
 
     private DatabaseReference databaseReference;
     ListView listView;

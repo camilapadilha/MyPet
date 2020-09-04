@@ -11,12 +11,13 @@ public class Pet {
     private Date dataNascimento;
     private String sexo;
     private String tipoDePet;
+    private String fotoPet;
 
     public Pet() {
 
     }
 
-    public Pet(String chave, String nome, Double peso, String raca, Date dataNascimento, String sexo, String tipoDePet) {
+    public Pet(String chave, String nome, Double peso, String raca, Date dataNascimento, String sexo, String tipoDePet, String fotoPet) {
         this.chave = chave;
         this.nome = nome;
         this.peso = peso;
@@ -24,6 +25,7 @@ public class Pet {
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
         this.tipoDePet = tipoDePet;
+        this.fotoPet = fotoPet;
     }
 
     public String getChave() {
@@ -80,5 +82,13 @@ public class Pet {
 
     public void setTipoDePet(String tipoDePet) {
         this.tipoDePet = tipoDePet;
+    }
+
+    public String getFotoPet() {
+        return fotoPet;
+    }
+
+    public void setFotoPet(String fotoPet) {
+        this.fotoPet = fotoPet;
     }
 }

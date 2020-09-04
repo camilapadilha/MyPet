@@ -27,7 +27,9 @@ public class CadastrarEditarLembreteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_editar_lembrete);
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         EditText data = (EditText) findViewById(R.id.input_Data);
         EditText horario = (EditText) findViewById(R.id.input_horario);
         data.addTextChangedListener(Mascara.insert(Mascara.FORMAT_DATE, data));

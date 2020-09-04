@@ -42,7 +42,7 @@
             android:layout_marginTop="136dp"
             android:background="@drawable/retangulo_branco"
             android:gravity="center"
-            android:onClick="chamarCadastrarPet"
+            android:onClick="chamarVerPet"
             android:orientation="vertical"
             android:padding="15dp"
             app:layout_constraintDimensionRatio="H, 1:1"
@@ -62,14 +62,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Novo Pet"
+                android:text="Pet"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/verPets"
+            android:id="@+id/verLembretes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="136dp"
@@ -77,45 +77,12 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/retangulo_branco"
             android:gravity="center"
-            android:onClick="chamarVerPet"
+            android:onClick="chamarLembretes"
             android:orientation="vertical"
             android:padding="15dp"
             app:layout_constraintDimensionRatio="H, 1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
-                android:padding="8dp"
-                android:src="@drawable/ic_ver_pet" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Ver Pets"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lembretes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/retangulo_branco"
-            android:gravity="center"
-            android:onClick="chamarLembretes"
-            android:orientation="vertical"
-            android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="H, 1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/novoPet"
-            app:layout_constraintVertical_bias="0.162">
 
             <ImageView
                 android:layout_width="80dp"
@@ -133,6 +100,8 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
