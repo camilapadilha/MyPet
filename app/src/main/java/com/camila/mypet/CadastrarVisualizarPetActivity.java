@@ -26,21 +26,28 @@ import com.camila.mypet.entities.Pet;
 import com.camila.mypet.util.Mascara;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class CadastrarVisualizarPetActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private Pet pet = new Pet();
 
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String currentPhotoPath;
     private static final int REQUEST_TAKE_PHOTO = 105;
 
@@ -70,8 +77,106 @@ public class CadastrarVisualizarPetActivity extends AppCompatActivity {
 
         carregarSpinerSexo();
         carregarSpinerTipoPet();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.containsKey("CHAVE_PET")) {
+            try {
+                carregarDados(bundle);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    private void carregarDados(Bundle bundle) throws ParseException {
+        final String chave = bundle.getString("CHAVE_PET");
+        System.out.println("chave->" + chave);
+        databaseReference.child(user.getUid()).child("pet").child(chave).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                pet = dataSnapshot.getValue(Pet.class);
+                try {
+                    preencherDados();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+    }
+
+    private void preencherDados() throws ParseException {
+
+        if (pet.getFotoPet() != null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 3;
+            Bitmap bitmap = stringToBitMap(pet.getFotoPet());
+
+            ImageView imageView1 = (ImageView) findViewById(R.id.fotoPet);
+
+            imageView1.setBackground(null);
+            imageView1.setImageBitmap(bitmap);
+        }
+
+        EditText editText = (EditText) findViewById(R.id.input_name);
+        editText.setText(pet.getNome());
+
+        EditText editTextPeso = (EditText) findViewById(R.id.input_peso);
+        editTextPeso.setText(pet.getPeso().toString());
+
+        Spinner spinTipoPet = (Spinner) findViewById(R.id.spinnerTipoPet);
+        List<String> tipoPet = new ArrayList<>(Arrays.asList("Escolha o Tipo do seu pet", "Cachorro", "Gato", "Coelho", "Pássaro", "Roedor", "Outro"));
+
+        for (int i = 0; i <= tipoPet.size(); i++) {
+            if (tipoPet.get(i).equals(pet.getTipoDePet())) {
+                spinTipoPet.setSelection(i);
+                break;
+            }
+        }
+
+        Spinner spinSexo = (Spinner) findViewById(R.id.spinnerSexo);
+        List<String> sexo = new ArrayList<>(Arrays.asList("Escolha o Sexo", "Fêmea", "Macho"));
+        for (int i = 0; i <= sexo.size(); i++) {
+            if (sexo.get(i).equals(pet.getSexo())) {
+                spinSexo.setSelection(i);
+                break;
+            }
+        }
+
+        EditText editTextRaca = (EditText) findViewById(R.id.input_raca);
+        editTextRaca.setText(pet.getRaca());
+
+        EditText editTextData = (EditText) findViewById(R.id.input_DataNasc);
+        editTextData.setText(convertedata(pet.getDataNascimento()));
+
+    }
+
+
+    public String convertedata(Date vdata) throws ParseException {
+        Date data = vdata;
+        String formato = "dd/MM/yyyy";
+        SimpleDateFormat formatter = new SimpleDateFormat(formato);
+        System.out.println("A data formatada é: " + formatter.format(data));
+
+        return formatter.format(data);
+    }
+
+    public Bitmap stringToBitMap(String encodedString){
+        try{
+            byte [] encodeByte = Base64.decode(encodedString,Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        }
+        catch(Exception e){
+            e.getMessage();
+            return null;
+        }
+    }
     private void carregarSpinerTipoPet() {
         final Spinner spin = (Spinner) findViewById(R.id.spinnerTipoPet);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -125,7 +230,7 @@ public class CadastrarVisualizarPetActivity extends AppCompatActivity {
         }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String chave = databaseReference.child(user.getUid()).child("pet").push().getKey();
+        String chave = this.pet.getChave() == null ? databaseReference.child(user.getUid()).child("pet").push().getKey() : this.pet.getChave();
         pet.setChave(chave);
         databaseReference.child(user.getUid()).child("pet").child(chave).setValue(pet);
 

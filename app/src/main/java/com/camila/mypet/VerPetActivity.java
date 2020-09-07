@@ -1,14 +1,15 @@
 package com.camila.mypet;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.camila.mypet.entities.Lembrete;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.camila.mypet.entities.Pet;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -73,35 +74,34 @@ public class VerPetActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Lembrete lembrete = (Lembrete) parent.getItemAtPosition(position);
-//        Intent intent = new Intent(this, DetalhesRegistro.class);
-//        intent.putExtra("ID_ATIVIDADE",memoriaAtividade.getId());
-//        startActivity(intent);
+        Pet pet = (Pet) parent.getItemAtPosition(position);
+        Intent intent = new Intent(this, CadastrarVisualizarPetActivity.class);
+        intent.putExtra("CHAVE_PET", pet.getChave());
+        startActivity(intent);
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//        final MemoriaAtividade memoriaAtividade = (MemoriaAtividade) parent.getItemAtPosition(position);
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("Deseja excluir a memória?").setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                //remover
-//                MemoriaAtividade.delete(memoriaAtividade);
-//                carregarLista();
-//            }
-//        }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//            }
-//        });
-//        builder.show();
-//
+        final Pet pet = (Pet) parent.getItemAtPosition(position);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Deseja excluir este Pet?").setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //remover
+                databaseReference.child(user.getUid()).child("pet").child(pet.getChave()).removeValue();
+                carregarLista();
+            }
+        }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+
         return true;
     }
-
 
     public void chamarCadastrarPet(View view) {
         Intent itt = new Intent(this, CadastrarVisualizarPetActivity.class);
