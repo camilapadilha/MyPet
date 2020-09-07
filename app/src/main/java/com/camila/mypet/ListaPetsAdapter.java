@@ -3,6 +3,7 @@ package com.camila.mypet;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +53,9 @@ public class ListaPetsAdapter extends BaseAdapter {
         if (pet.getFotoPet() != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inSampleSize = 3;
-            Bitmap bitmap = BitmapFactory.decodeFile(pet.getFotoPet(), options);
-            System.out.println("222222 "+ bitmap);
+            Bitmap bitmap = stringToBitMap(pet.getFotoPet());
 
             ImageView imageView1 = (ImageView) viewLinha.findViewById(R.id.imageViewVerPet);
-
-            System.out.println("33333 "+ imageView1);
 
             imageView1.setBackground(null);
             imageView1.setImageBitmap(bitmap);
@@ -65,4 +63,15 @@ public class ListaPetsAdapter extends BaseAdapter {
         return viewLinha;
     }
 
+    public Bitmap stringToBitMap(String encodedString){
+        try{
+            byte [] encodeByte = Base64.decode(encodedString,Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        }
+        catch(Exception e){
+            e.getMessage();
+            return null;
+        }
+    }
 }

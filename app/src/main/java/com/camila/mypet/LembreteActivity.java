@@ -1,11 +1,13 @@
 package com.camila.mypet;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.camila.mypet.entities.Lembrete;
@@ -50,6 +52,7 @@ public class LembreteActivity extends AppCompatActivity implements AdapterView.O
     }
 
     public void carregarLista() {
+        System.out.println("Entrou " + user.getUid());
         databaseReference.child(user.getUid()).child("lembrete")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -59,6 +62,7 @@ public class LembreteActivity extends AppCompatActivity implements AdapterView.O
                                 lembretes.add(snapshot.getValue(Lembrete.class));
                             }
                         }
+                        System.out.println("Carregou lista");
                     }
 
                     @Override
@@ -73,32 +77,32 @@ public class LembreteActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Lembrete lembrete = (Lembrete) parent.getItemAtPosition(position);
-//        Intent intent = new Intent(this, DetalhesRegistro.class);
-//        intent.putExtra("ID_ATIVIDADE",memoriaAtividade.getId());
-//        startActivity(intent);
+        Lembrete lembrete = (Lembrete) parent.getItemAtPosition(position);
+        Intent intent = new Intent(this, CadastrarEditarLembreteActivity.class);
+        intent.putExtra("CHAVE_LEMBRETE", lembrete.getChave());
+        startActivity(intent);
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//        final MemoriaAtividade memoriaAtividade = (MemoriaAtividade) parent.getItemAtPosition(position);
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("Deseja excluir a memória?").setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                //remover
-//                MemoriaAtividade.delete(memoriaAtividade);
-//                carregarLista();
-//            }
-//        }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//            }
-//        });
-//        builder.show();
-//
+        final Lembrete lembrete = (Lembrete) parent.getItemAtPosition(position);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Deseja excluir este lembrete?").setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //remover
+                databaseReference.child(user.getUid()).child("lembrete").child(lembrete.getChave()).removeValue();
+                carregarLista();
+            }
+        }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+
         return true;
     }
 }
