@@ -155,6 +155,18 @@
                         android:inputType="textMultiLine"
                         android:lines="11" />
                 </com.google.android.material.textfield.TextInputLayout>
+                <ImageView
+                    android:onClick="vozTextoComentario"
+                    android:id="@+id/imagemFalarDescricao"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignRight="@+id/input_layout_comentario"
+                    android:layout_alignBottom="@+id/input_layout_comentario"
+                    android:background="@drawable/fundo_icone_busca"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_mic"
+                    android:tint="#00BFFF"
+                    app:layout_constraintStart_toEndOf="@+id/input_layout_comentario" />
             </RelativeLayout>
 
             <RelativeLayout

@@ -106,7 +106,7 @@
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff"
+                android:backgroundTint="#87CEFF"
                 android:onClick="cadastrar"
                 android:text="Cadastrar" />
         </RelativeLayout>
@@ -126,7 +126,7 @@
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="#FFC0CB"
                 android:onClick="voltar"
                 android:text="Voltar para o Login" />
         </RelativeLayout>

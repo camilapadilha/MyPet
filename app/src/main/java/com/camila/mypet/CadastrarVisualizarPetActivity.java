@@ -1,5 +1,6 @@
 package com.camila.mypet;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.speech.RecognizerIntent;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CadastrarVisualizarPetActivity extends AppCompatActivity {
 
@@ -166,17 +169,17 @@ public class CadastrarVisualizarPetActivity extends AppCompatActivity {
         return formatter.format(data);
     }
 
-    public Bitmap stringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte = Base64.decode(encodedString,Base64.DEFAULT);
+    public Bitmap stringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             return bitmap;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }
     }
+
     private void carregarSpinerTipoPet() {
         final Spinner spin = (Spinner) findViewById(R.id.spinnerTipoPet);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
