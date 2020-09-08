@@ -11,8 +11,6 @@
         android:id="@+id/layoutCadLembrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -20,16 +18,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Cadastrar Lembretes"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="parent"
+            android:text="Cadastrar Lembrete"
+            android:textSize="25sp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"

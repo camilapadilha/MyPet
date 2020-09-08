@@ -18,13 +18,13 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Login"
-            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:text="Recuperar Senha"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="parent" />
 
         <RelativeLayout
             android:id="@+id/layoutDescricao"
@@ -36,7 +36,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/retangulo_branco"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/title">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_name"
