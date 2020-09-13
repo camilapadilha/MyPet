@@ -247,17 +247,17 @@ public class CadastrarVisualizarPetActivity extends AppCompatActivity {
 
     public void chamarCameraPet(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
+        // Certifique-se de que haja uma activity de câmera para lidar com a intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
+            // Crie o arquivo onde a foto deve ir
             File photoFile = null;
             try {
                 photoFile = createImageFile();
             } catch (IOException
                     ex) {
-                // Error occurred while creating the File
+                // Ocorreu um erro ao criar o arquivo
             }
-            // Continue only if the File was successfully created
+            // Continue apenas se o arquivo foi criado com sucesso
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.camila.mypet",

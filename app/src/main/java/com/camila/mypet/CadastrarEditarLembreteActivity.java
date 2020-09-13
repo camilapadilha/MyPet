@@ -96,7 +96,6 @@ public class CadastrarEditarLembreteActivity extends AppCompatActivity {
 
     private void carregarDados(Bundle bundle) throws ParseException {
         final String chave = bundle.getString("CHAVE_LEMBRETE");
-        System.out.println("chave->" + chave);
         databaseReference.child(user.getUid()).child("lembrete").child(chave).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

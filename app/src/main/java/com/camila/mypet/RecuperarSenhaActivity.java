@@ -37,4 +37,8 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
         });
 
     }
+
+    public void voltar(View view) {
+        finish();
+    }
 }
